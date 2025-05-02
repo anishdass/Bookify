@@ -13,7 +13,7 @@ const CheckBox = ({ label, selected = false, onChange = () => {} }) => {
         checked={selected}
         onChange={(e) => onChange(e.target.checked, label)}
       />
-      <span className=' font-light select-none'>{label}</span>
+      <span className='font-light select-none'>{label}</span>
     </label>
   );
 };
@@ -29,7 +29,7 @@ const RadioButton = ({ label, selected = false, onChange = () => {} }) => {
         checked={selected}
         onChange={() => onChange(label)}
       />
-      <span className=' font-light select-none'>{label}</span>
+      <span className='font-light select-none'>{label}</span>
     </label>
   );
 };
@@ -90,7 +90,7 @@ const AllRooms = () => {
                 <p className='ml-2'>200+ reviews</p>
               </div>
               <div className='flex items-center gap-1 text-gray-500 mt-2 text-sm'>
-                <img src={assets.locationIcon} alt='location-icon' />
+                <img src={assets.locationIcon} alt='location-icon'/>
                 <span>{room.hotel.address}</span>
               </div>
               {/* Room Amenities */}
@@ -98,7 +98,7 @@ const AllRooms = () => {
                 {room.amenities.map((item, index) => (
                   <div
                     key={index}
-                    className=' flex items-center gap-2 px-3 py-2 rounded-lg bg-[#f5f5ff]/70'>
+                    className='flex items-center gap-2 px-3 py-2 rounded-lg bg-[#f5f5ff]/70'>
                     <img
                       src={facilityIcons[item]}
                       alt={item}
@@ -109,45 +109,45 @@ const AllRooms = () => {
                 ))}
               </div>
               {/* Room Price Per night */}
-              <p className=' text-xl font-medium text-gray-700'>
+              <p className='text-xl font-medium text-gray-700'>
                 ${room.pricePerNight}/night
               </p>
             </div>
           </div>
         ))}
       </div>
-      <div className=' bg-white w-80 border border-gray-300 text-gray-600 max-lg:mb-8 min-lg:mt-16'>
+      <div className='bg-white w-80 border border-gray-300 text-gray-600 max-lg:mb-8 min-lg:mt-16'>
         <div
           className={` flex items-center justify-between px-5 py-2.5 min-lg:border-b border-green-300 ${
             openFilters && "border-b"
           }`}>
           <p>FILTERS</p>
-          <div className=' text-xs cursor-pointer'>
+          <div className='text-xs cursor-pointer'>
             <span
               onClick={() => setOpenFilters(!openFilters)}
               className='lg:hidden'>
               {openFilters ? "Hide" : "Show"}
             </span>
-            <span className=' hidden lg:block'>Clear</span>
+            <span className='hidden lg:block'>Clear</span>
           </div>
         </div>
         <div
           className={`${
             openFilters ? "h-auto" : "h-0 lg:h-auto"
           } overflow-hidden transition-all duration-700`}>
-          <div className=' px-5 pt-5'>
+          <div className='px-5 pt-5'>
             <p>Popular Filters</p>
             {roomTypes.map((room, index) => (
               <CheckBox key={index} label={room} />
             ))}
           </div>
-          <div className=' px-5 pt-5'>
+          <div className='px-5 pt-5'>
             <p>Price Range</p>
             {priceRange.map((range, index) => (
               <CheckBox key={index} label={`$ ${range}`} />
             ))}
           </div>
-          <div className=' px-5 pt-5 pb-7'>
+          <div className='px-5 pt-5 pb-7'>
             <p>Sort By</p>
             {sortOptions.map((option, index) => (
               <RadioButton key={index} label={option} />
